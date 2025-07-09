@@ -2,7 +2,7 @@ require "yaml"
 require "abstract_controller"
 require "active_agent/generation_provider"
 require "active_agent/version"
-require "active_agent/deprecator"
+require "active_agent/deprecator" if defined?(ActiveSupport::Deprecation)
 require "active_agent/railtie" if defined?(Rails)
 
 require "active_support"
@@ -60,6 +60,8 @@ autoload :Mime, "action_dispatch/http/mime_type"
 
 ActiveSupport.on_load(:action_view) do
   ActionView::Base.default_formats ||= Mime::SET.symbols
-  ActionView::Template.mime_types_implementation = Mime
+  if ActionView::Template.respond_to?(:mime_types_implementation=)
+    ActionView::Template.mime_types_implementation = Mime
+  end
   ActionView::LookupContext::DetailsKey.clear
 end

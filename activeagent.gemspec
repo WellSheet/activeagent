@@ -19,12 +19,12 @@ Gem::Specification.new do |spec|
     "rubygems_mfa_required" => "true"
   }
   # Add dependencies
-  spec.add_dependency "actionpack", ">= 7.2", "< 9.0"
-  spec.add_dependency "actionview", ">= 7.2", "< 9.0"
-  spec.add_dependency "activesupport", ">= 7.2", "< 9.0"
-  spec.add_dependency "activemodel", ">= 7.2", "< 9.0"
-  spec.add_dependency "activejob", ">= 7.2", "< 9.0"
+  spec.add_dependency "actionpack", ">= 6.0", "< 9.0"
+  spec.add_dependency "actionview", ">= 6.0", "< 9.0"
+  spec.add_dependency "activesupport", ">= 6.0", "< 9.0"
+  spec.add_dependency "activemodel", ">= 6.0", "< 9.0"
+  spec.add_dependency "activejob", ">= 6.0", "< 9.0"
 
-  spec.add_dependency "rails", ">= 7.2", "< 9.0"
+  spec.add_dependency "rails", ">= 6.0", "< 9.0"
   spec.add_development_dependency "jbuilder"
 end

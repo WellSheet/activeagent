@@ -13,7 +13,9 @@ module ActiveAgent
     config.eager_load_namespaces << ActiveAgent
 
     initializer "active_agent.deprecator", before: :load_environment_config do |app|
-      app.deprecators[:active_agent] = ActiveAgent.deprecator
+      if app.respond_to?(:deprecators)
+        app.deprecators[:active_agent] = ActiveAgent.deprecator
+      end
     end
 
     initializer "active_agent.logger" do
